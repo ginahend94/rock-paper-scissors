@@ -3,7 +3,7 @@ const computerPlay = () => {
   const plays = ['rock', 'paper', 'scissors'];
   return plays[Math.floor(Math.random() * 3)]
 }
-// New function playRound takes in playerSelection and computerSelection, returns winner as string
+// Function playRound takes in playerSelection and computerSelection, returns winner as string
 const playRound = (playerSelection, computerSelection) => {
   let roundResult;
   console.log('Computer chose ' + computerSelection + '.');
@@ -11,7 +11,8 @@ const playRound = (playerSelection, computerSelection) => {
   playerSelection = playerSelection.toLowerCase();
   switch (playerSelection) {
     case 'rock':
-      computerSelection === 'rock' ? roundResult = 'draw' : computerSelection == 'paper' ? roundResult = 'computer wins'
+      computerSelection === 'rock' ? roundResult = 'draw' 
+      : computerSelection == 'paper' ? roundResult = 'computer wins'
       : computerSelection == 'scissors' ? roundResult = 'player wins'
       : console.log('huh???');
       break;
@@ -46,8 +47,14 @@ const game = () => {
     console.log(`You chose ${playerSelection}.`)
     let roundScore = playRound(playerSelection, computerSelection);
     roundScore == 'computer wins' ? ++compWins 
-    : roundScore = 'player wins' ? ++playerWins 
+    : roundScore == 'player wins' ? ++playerWins 
     : ++draws;
+    console.log(`Round ${i + 1}
+    ${roundScore}
+    Comp wins: ${compWins}
+    Player wins: ${playerWins}
+    Draws: ${draws}`)
+    console.log();
   }
 // Print winner at the end
   let winMessage;
