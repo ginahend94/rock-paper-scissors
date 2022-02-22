@@ -6,6 +6,7 @@ const playerSelectionDiv = document.querySelector('.player-choice');
 const roundResultsDiv = document.querySelector('.round-results');
 const gameResultsDiv = document.querySelector('.game-results');
 const playerScoreSpan = document.querySelector('.player-score')
+const computerScoreSpan = document.querySelector('.computer-score');
 
 // User selects symbol to start game
 const rock = document.getElementById('rock');
@@ -58,6 +59,13 @@ function playRound(playerSelection, computerSelection) {
       roundResult = 'error: you have to select \'rock\', \'paper\', or \'scissors\'';
   }
   roundResultsDiv.innerText = roundResult;
+  
+  if (roundResult == 'computer wins') ++computerScore;
+  else if (roundResult == 'player wins') ++playerScore;
+
+  playerScoreSpan.innerText = playerScore;
+  computerScoreSpan.innerText = computerScore;
+
   return roundResult;
 }
 
