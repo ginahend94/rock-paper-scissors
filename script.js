@@ -41,21 +41,26 @@ const game = () => {
   let playerWins = 0;
   let draws = 0;
 // Play 5 rounds and keep score
-  for (let i = 0; i < 5; i++) {
-// Use prompt() to get user play
-    let playerSelection = prompt('Enter rock, paper, or scissors.');
-    console.log(`You chose ${playerSelection}.`)
-    let roundScore = playRound(playerSelection, computerSelection);
-    roundScore == 'computer wins' ? ++compWins 
-    : roundScore == 'player wins' ? ++playerWins 
-    : ++draws;
-    console.log(`Round ${i + 1}
-    ${roundScore}
-    Comp wins: ${compWins}
-    Player wins: ${playerWins}
-    Draws: ${draws}`)
-    console.log();
-  }
+//  for (let i = 0; i < 5; i++) {
+// User plays with buttons
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+
+
+
+let playerSelection = null;
+console.log(`You chose ${playerSelection}.`)
+let roundScore = playRound(playerSelection, computerSelection);
+roundScore == 'computer wins' ? ++compWins 
+: roundScore == 'player wins' ? ++playerWins 
+: ++draws;
+console.log(`Round ${i + 1}
+${roundScore}
+Comp wins: ${compWins}
+Player wins: ${playerWins}
+Draws: ${draws}`)
+console.log();
 // Print winner at the end
   let winMessage;
   compWins > playerWins ? winMessage = `Computer: ${compWins}
