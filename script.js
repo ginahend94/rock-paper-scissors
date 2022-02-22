@@ -1,4 +1,4 @@
-// Write a function computerPlay that returns 'Rock', 'Paper', or 'Scissors'
+// Function computerPlay that returns 'Rock', 'Paper', or 'Scissors'
 const computerPlay = () => {
   const plays = ['rock', 'paper', 'scissors'];
   return plays[Math.floor(Math.random() * 3)]
@@ -7,8 +7,6 @@ const computerPlay = () => {
 const playRound = (playerSelection, computerSelection) => {
   let roundResult;
   console.log('Computer chose ' + computerSelection + '.');
-  // Make parameters case-insensitive
-  playerSelection = playerSelection.toLowerCase();
   switch (playerSelection) {
     case 'rock':
       computerSelection === 'rock' ? roundResult = 'draw' 
@@ -47,7 +45,8 @@ const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 
-document.querySelectorAll("button").forEach(button => addEventListener('click', e => console.log(e.target.classList.value)));
+document.querySelectorAll("button")
+    .forEach(button => addEventListener('click', e => console.log(e.target.classList.value)));
 
 let playerSelection = null;
 console.log(`You chose ${playerSelection}.`)
