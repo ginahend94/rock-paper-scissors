@@ -9,13 +9,13 @@ const playerScoreSpan = document.querySelector('.player-score')
 
 // User selects symbol to start game
 const rock = document.getElementById('rock');
-rock.addEventListener('click', playRound.bind(rock, 'rock', computerPlay()));
+rock.addEventListener('click', playRound.bind(rock, 'rock'));
 
 const paper = document.getElementById('paper');
-paper.addEventListener('click', playRound.bind(paper, 'paper', computerPlay()));
+paper.addEventListener('click', playRound.bind(paper, 'paper'));
 
 const scissors = document.getElementById('scissors');
-scissors.addEventListener('click', playRound.bind(scissors, 'scissors', computerPlay()));
+scissors.addEventListener('click', playRound.bind(scissors, 'scissors'));
 
 // Computer selects symbol
 function computerPlay() {
@@ -29,6 +29,7 @@ let computerScore = 0;
 function playRound(playerSelection, computerSelection) {
 
   let roundResult;
+  computerSelection = computerPlay();
 
   playerSelectionDiv.innerText = `You chose ${playerSelection}.`;
   computerSelectionDiv.innerText = `Computer chose ${computerSelection}.`;
