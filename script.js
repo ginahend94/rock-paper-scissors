@@ -47,7 +47,7 @@ const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 
-
+document.querySelectorAll("button").addEventListener('click', e => console.log(e.target));
 
 let playerSelection = null;
 console.log(`You chose ${playerSelection}.`)
