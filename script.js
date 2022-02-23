@@ -32,6 +32,7 @@ function playRound(playerSelection, computerSelection) {
   let roundResult;
   computerSelection = computerPlay();
 
+  gameResultsDiv.innerText = '';
   playerSelectionDiv.innerText = `You chose ${playerSelection}.`;
   computerSelectionDiv.innerText = `Computer chose ${computerSelection}.`;
 
@@ -60,19 +61,24 @@ function playRound(playerSelection, computerSelection) {
   }
   roundResultsDiv.innerText = roundResult;
   
+// Keep score for round
   if (roundResult == 'computer wins') ++computerScore;
   else if (roundResult == 'player wins') ++playerScore;
 
   playerScoreSpan.innerText = playerScore;
   computerScoreSpan.innerText = computerScore;
 
+// Show final winner at the end
+  if (playerScore == 5) {
+    gameResultsDiv.innerText = `${playerScore > computerScore ? 'You win' : computerScore > playerScore ? 'Computer wins' : 'It\'s a draw'}`;
+    playerScore = 0;
+    computerScore = 0;
+  }
   return roundResult;
 }
 
 
-// Keep score for round
 // Repeat for number of rounds
-// Show final winner at the end
 
 
 
