@@ -6,6 +6,7 @@ const gameResultsDiv = document.querySelector('.game-results');
 const playerScoreSpan = document.querySelector('.player-score')
 const computerScoreSpan = document.querySelector('.computer-score');
 
+
 // User selects symbol to start game
 const rock = document.getElementById('rock');
 rock.addEventListener('click', playRound.bind(rock, 'rock'));
@@ -31,27 +32,27 @@ function playRound(playerSelection, computerSelection) {
   computerSelection = computerPlay();
 
   gameResultsDiv.innerText = '';
-  playerSelectionDiv.innerText = `You chose ${playerSelection}.`;
-  computerSelectionDiv.innerText = `Computer chose ${computerSelection}.`;
+  playerSelectionDiv.innerHTML = `<i class="selection-icon far fa-hand-${playerSelection}" data-selection="${playerSelection}"></i><span class="play-description">${playerSelection}</span>`;
+  computerSelectionDiv.innerHTML = `<i class="selection-icon far fa-hand-${computerSelection}" data-selection="${playerSelection}"></i><span class="play-description">${computerSelection}</span>`;
 
 // Compare symbols
   switch (playerSelection) {
     case 'rock':
-      computerSelection === 'rock' ? roundResult = 'draw'
-        : computerSelection == 'paper' ? roundResult = 'computer wins'
-          : computerSelection == 'scissors' ? roundResult = 'player wins'
+      computerSelection === 'rock' ? roundResult = 'It\'s a draw'
+        : computerSelection === 'paper' ? roundResult = 'Computer wins'
+          : computerSelection === 'scissors' ? roundResult = 'You win'
             : console.log('huh???');
       break;
     case 'paper':
-      computerSelection === 'rock' ? roundResult = 'player wins'
-        : computerSelection == 'paper' ? roundResult = 'draw'
-          : computerSelection == 'scissors' ? roundResult = 'computer wins'
+      computerSelection === 'rock' ? roundResult = 'You win'
+        : computerSelection === 'paper' ? roundResult = 'It\'s a draw'
+          : computerSelection === 'scissors' ? roundResult = 'Computer wins'
             : console.log('huh???');
       break;
     case 'scissors':
-      computerSelection === 'rock' ? roundResult = 'computer wins'
-        : computerSelection == 'paper' ? roundResult = 'player wins'
-          : computerSelection == 'scissors' ? roundResult = 'draw'
+      computerSelection === 'rock' ? roundResult = 'Computer wins'
+        : computerSelection === 'paper' ? roundResult = 'You win'
+          : computerSelection === 'scissors' ? roundResult = 'It\'s a draw'
             : console.log('huh???');
       break;
     default:
@@ -60,15 +61,15 @@ function playRound(playerSelection, computerSelection) {
   roundResultsDiv.innerText = roundResult;
   
 // Keep score for round
-  if (roundResult == 'computer wins') ++computerScore;
-  else if (roundResult == 'player wins') ++playerScore;
+  if (roundResult == 'Computer wins') ++computerScore;
+  else if (roundResult == 'You win') ++playerScore;
 
   playerScoreSpan.innerText = playerScore;
   computerScoreSpan.innerText = computerScore;
 
 // Show final winner at the end and reset scores
   if (playerScore == 5) {
-    gameResultsDiv.innerText = `${playerScore > computerScore ? 'You win' : computerScore > playerScore ? 'Computer wins' : 'It\'s a draw'}`;
+    gameResultsDiv.innerText = `${playerScore > computerScore ? 'You win!' : computerScore > playerScore ? 'The computer wins.' : 'It\'s a draw'}`;
     playerScore = 0;
     computerScore = 0;
   }

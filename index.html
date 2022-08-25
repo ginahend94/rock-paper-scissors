@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Rock Paper Scissors</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Rock Paper Scissors</h1>
-      </header>
-      <div class="results-container">
-        <div class="computer-choice"></div>
-        <div class="player-choice"></div>
-        <div class="round-results"></div>
-        <div class="game-results"></div>
-        <div class="scores">
-          Computer: <span class="computer-score"></span><br />
-          You: <span class="player-score"></span>
-        </div>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://kit.fontawesome.com/fc01c3b169.js" crossorigin="anonymous"></script>
+  <script src="script.js" defer></script>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <header>
+    <h1>Rock Paper Scissors</h1>
+  </header>
+  <div class="results-container">
+    <h2><i class="fas fa-user"></i>You</h2>
+    <h2><i class="fas fa-robot"></i>Computer</h2>
+    <div class="player-choice"></div>
+    <div class="computer-choice"></div>
+    <div class="round-results"></div>
+    <div class="button-container">
+      <button class="play-button" id="rock">rock</button>
+      <button class="play-button" id="paper">paper</button>
+      <button class="play-button" id="scissors">scissors</button>
+    </div>
+    <div class="scores">
+      <div>
+        You: <div class="player-score">0</div>
       </div>
-      <div class="button-container">
-        <button class="play-button" id="rock">rock</button>
-        <button class="play-button" id="paper">paper</button>
-        <button class="play-button" id="scissors">scissors</button>
+      <div>
+        Computer: <div class="computer-score">0</div>
       </div>
     </div>
-    <script src="script.js"></script>
-  </body>
+    <div class="game-results"></div>
+  </div>
+  <footer>
+    <span>Copyright &copy; 2022 <a href="https://ginahenderson.me" target="_blank">Gina Henderson</a>.</span>
+  </footer>
+</body>
+
 </html>
