@@ -99,6 +99,11 @@ a {
     align-items: center;
 }
 
+.game-results::before {
+    content: 'Game Results:';
+    margin:5px;
+}
+
 footer {
     align-self: start;
     padding:10px;
